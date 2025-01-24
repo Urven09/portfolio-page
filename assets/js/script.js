@@ -1,34 +1,28 @@
 $(document).ready(function () {
-
     $('#menu').click(function () {
         $(this).toggleClass('fa-times');
         $('.navbar').toggleClass('nav-toggle');
     });
-
     $(window).on('scroll load', function () {
         $('#menu').removeClass('fa-times');
         $('.navbar').removeClass('nav-toggle');
-
         if (window.scrollY > 60) {
             document.querySelector('#scroll-top').classList.add('active');
         } else {
             document.querySelector('#scroll-top').classList.remove('active');
         }
-
         // scroll spy
         $('section').each(function () {
             let height = $(this).height();
             let offset = $(this).offset().top - 200;
             let top = $(window).scrollTop();
             let id = $(this).attr('id');
-
             if (top > offset && top < offset + height) {
                 $('.navbar ul li a').removeClass('active');
                 $('.navbar').find(`[href="#${id}"]`).addClass('active');
             }
         });
     });
-
     // smooth scrolling
     $('a[href*="#"]').on('click', function (e) {
         e.preventDefault();
@@ -36,11 +30,9 @@ $(document).ready(function () {
             scrollTop: $($(this).attr('href')).offset().top,
         }, 500, 'linear')
     });
-
     // <!-- emailjs to mail contact form data -->
     $("#contact-form").submit(function (event) {
         emailjs.init("user_TTDmetQLYgWCLzHTDgqxm");
-
         emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
             .then(function (response) {
                 console.log('SUCCESS!', response.status, response.text);
@@ -53,13 +45,11 @@ $(document).ready(function () {
         event.preventDefault();
     });
     // <!-- emailjs to mail contact form data -->
-
 });
-
 document.addEventListener('visibilitychange',
     function () {
         if (document.visibilityState === "visible") {
-            document.title = "Portfolio | Urven Kakaiya";
+            document.title = "Portfolio | Jigar Sable";
             $("#favicon").attr("href", "assets/images/favicon.png");
         }
         else {
@@ -67,11 +57,9 @@ document.addEventListener('visibilitychange',
             $("#favicon").attr("href", "assets/images/favhand.png");
         }
     });
-
-
 // <!-- typed js effect starts -->
 var typed = new Typed(".typing-text", {
-    strings: ["Web Designer", "UI/UX Designer", "Frontend Developer"],
+    strings: ["web designer", "UI/UX Designer","Frontend Development"],
     loop: true,
     typeSpeed: 50,
     backSpeed: 25,
@@ -79,13 +67,12 @@ var typed = new Typed(".typing-text", {
 });
 // <!-- typed js effect ends -->
 
-
+    projectsContainer.innerHTML = projectHTML;
     // <!-- tilt js effect starts -->
     VanillaTilt.init(document.querySelectorAll(".tilt"), {
         max: 15,
     });
     // <!-- tilt js effect ends -->
-
     /* ===== SCROLL REVEAL ANIMATION ===== */
     const srtop = ScrollReveal({
         origin: 'top',
@@ -93,27 +80,20 @@ var typed = new Typed(".typing-text", {
         duration: 1000,
         reset: true
     });
-
     /* SCROLL PROJECTS */
     srtop.reveal('.work .box', { interval: 200 });
-
 }
-
 fetchData().then(data => {
     showSkills(data);
 });
-
 fetchData("projects").then(data => {
     showProjects(data);
 });
-
 // <!-- tilt js effect starts -->
 VanillaTilt.init(document.querySelectorAll(".tilt"), {
     max: 15,
 });
 // <!-- tilt js effect ends -->
-
-
 // pre loader start
 // function loader() {
 //     document.querySelector('.loader-container').classList.add('fade-out');
@@ -123,7 +103,6 @@ VanillaTilt.init(document.querySelectorAll(".tilt"), {
 // }
 // window.onload = fadeOut;
 // pre loader end
-
 // disable developer mode
 document.onkeydown = function (e) {
     if (e.keyCode == 123) {
@@ -142,7 +121,6 @@ document.onkeydown = function (e) {
         return false;
     }
 }
-
 // Start of Tawk.to Live Chat
 var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
 (function () {
@@ -154,8 +132,6 @@ var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
     s0.parentNode.insertBefore(s1, s0);
 })();
 // End of Tawk.to Live Chat
-
-
 /* ===== SCROLL REVEAL ANIMATION ===== */
 const srtop = ScrollReveal({
     origin: 'top',
@@ -163,12 +139,10 @@ const srtop = ScrollReveal({
     duration: 1000,
     reset: true
 });
-
 /* SCROLL HOME */
 srtop.reveal('.home .content h3', { delay: 200 });
 srtop.reveal('.home .content p', { delay: 200 });
 srtop.reveal('.home .content .btn', { delay: 200 });
-
 srtop.reveal('.home .image', { delay: 400 });
 
 /* SCROLL ABOUT */
@@ -177,9 +151,6 @@ srtop.reveal('.about .content .tag', { delay: 200 });
 srtop.reveal('.about .content p', { delay: 200 });
 srtop.reveal('.about .content .box-container', { delay: 200 });
 srtop.reveal('.about .content .resumebtn', { delay: 200 });
-
-/* SCROLL PROJECTS */
-srtop.reveal('.work .box', { interval: 200 });
 
 /* SCROLL CONTACT */
 srtop.reveal('.contact .container', { delay: 400 });
